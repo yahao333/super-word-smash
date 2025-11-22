@@ -5,6 +5,7 @@ export interface WordEntity {
   y: number; // Percentage (0-100)
   speed: number;
   color: string;
+  markedForDeath?: boolean;
 }
 
 export interface Particle {
@@ -27,4 +28,21 @@ export enum GameState {
 export interface GameSettings {
   spawnRate: number; // ms between spawns
   baseSpeed: number;
+}
+
+export enum WeaponType {
+  LASER = 'LASER',
+  MISSILE = 'MISSILE',
+  BULLET = 'BULLET'
+}
+
+export interface Projectile {
+  id: string;
+  x: number; // Percentage
+  y: number; // Percentage
+  targetId: string;
+  speed: number;
+  type: WeaponType;
+  color: string;
+  angle?: number;
 }
