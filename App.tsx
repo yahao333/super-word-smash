@@ -352,11 +352,12 @@ const App: React.FC = () => {
           {projectilesRef.current.map(p => (
             <div
               key={p.id}
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-75"
+              className="absolute transform -translate-x-1/2 -translate-y-1/2"
               style={{
                 left: `${p.x}%`,
                 top: `${p.y}%`,
-                transform: `translate(-50%, -50%) rotate(${p.angle || 0}deg)`
+                transform: `translate(-50%, -50%) rotate(${p.angle || 0}deg)`,
+                willChange: 'left, top, transform'
               }}
             >
               {p.type === WeaponType.LASER && (
